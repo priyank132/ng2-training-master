@@ -1,0 +1,18 @@
+<main role="main">
+  <!-- Insert Jumbotron -->
+  <!-- <app-jumbotron title="Welcome to License Plate Store"
+    description='Browse License Plat'>
+  </app-jumbotron> -->
+  <app-carousel></app-carousel>
+  <app-popup-window [isOpen]="showPopup" title="Add to Cart" (onClose)="onClose($event)">
+    The Plat is added to the Cart
+  </app-popup-window>
+  <div class="container">
+    <div class="row">
+        <app-license-plate appAppHighlight *ngFor="let p of licensePlates | async;odd as o" [plate]='p'
+        buttonText='Add to Cart'
+        (onAddToCart)='onAddToCart($event)'
+        class="col-md-4" [style.background]="o ? '' : '#F5F5F5' "></app-license-plate>
+  </div>
+  </div>
+</main>
